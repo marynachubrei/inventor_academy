@@ -1,0 +1,434 @@
+.title{
+  @include font($title-font,$size:48px,$l-height:53px);
+  span{
+    color: $yellow;
+  }
+}
+
+.default-button{
+  @include font($title-font,$size:18px,$l-height:20px,$color:$white);
+  border-bottom: 1px solid $white;
+  &:hover{
+    color: $yellow;
+    border-bottom: 1px solid $yellow;
+  }
+}
+
+
+button.active{
+	color: $yellow;
+	border-bottom: 1px solid $yellow;
+}
+
+.active{
+	color: $yellow;
+	border-bottom: 1px solid $yellow;
+}
+
+.about{
+  background-color: $block-color;
+  &__content{
+    min-height: 920px;
+    height: 100%;
+    margin-top:150px;
+    padding-top: 190px;
+    background-image: url('../images/header_bottle.png');
+    background-repeat: no-repeat;
+    background-position: bottom;
+  }
+  &__content-inner{
+    text-align: center;
+    max-width: 745px;
+    min-height: 235px;
+    height: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &-top{
+      @include font($title-font,$size:24px,$l-height:14px)
+    }
+    &-main{
+      @include font($title-font,$size:96px,$l-height:56px);
+    }
+    &-text{
+      font-weight: 300;
+    }
+  }
+}
+
+.new{
+  padding: 180px 0px;
+  &__inner{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  &__content{
+    max-width: 520px;
+    @include font($size:18px,$l-height:18px);
+    &-top{
+      @include font($size:20px,$l-height:34px,$l-spacing:5px);
+    }
+    &-title{
+      @include font($title-font,$size:74px,$l-height:75px,$color:$yellow);
+    }
+    &-subtitle{
+      @include font($size:36px,$l-height:61px);
+    }
+    &-text{
+      @include font($weight:300);
+      margin-bottom: 50px;
+    }
+    &-button{
+      width: 230px;
+      height: 70px;
+      background-color: $yellow;
+      @include font($weight:500,$size:24px,$l-height:24px,$color:$black)
+    }
+  }
+  &__slider{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    background-image: url('../images/new_bottle-bg.svg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 90%;
+    &-button{
+      border-bottom: 1px solid $white;
+      &:hover{
+        color: $yellow;
+        border-bottom: 1px solid $yellow;
+      }
+    }
+  }
+}
+
+.products{
+  padding: 180px 0 167px;
+  text-align: center;
+  background-color: $block-color;
+  &__title{
+    margin-bottom: 90px;
+  }
+  &__inner{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &__types{
+    max-width: 420px;
+    width: 100%;
+    margin-bottom: 90px;
+    line-height: 36px;
+    &-list{
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid $border-color;
+    }
+    &-button:hover{
+      border-bottom: 1px solid $yellow;
+    }
+  }
+  &__button{
+    margin-top: 75px;
+  }
+  &__elements{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(2, 440px);
+    grid-column-gap:25px;
+    grid-row-gap:100px ;
+    overflow: hidden;
+    width: 100%;
+    height: 980px;
+    &-item{
+      position: relative;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    &-mark{
+      @include font($size:14px,$l-height:21px,$color:$black);
+      padding: 10px 15px;
+      width: 81px;
+      height: 40px;
+      background-color: $yellow;
+      display: inline-block;
+      position: absolute;
+      top:0px;
+      left:0px;
+    }
+    &-bottle{
+      padding-top:10px ;
+      height: 360px;
+    }
+    &-title{
+      @include font($title-font,$size:21px,$l-height:24px,$color:$white);
+    }
+    &-price{
+      @include font($size:24px,$l-height:36px,$color:$yellow);
+      span{
+        vertical-align: middle;
+        @include font($l-height:24px,$color:$yellow);
+        margin: 5px;
+        text-decoration: line-through;
+      }
+    }
+  }
+}
+
+.review{
+  text-align: center;
+  padding: 180px 105px 124px 100px;
+  &__slides-item{
+    width: 25%;
+    float: left;
+  }
+  &__title{
+    margin-bottom: 60px;
+  }
+  &__client{
+    margin-bottom: 30px;
+    &-name{
+      @include font($weight:600,$size:24px,$l-height:42px);
+      margin-top: 30px;
+    }
+  }
+}
+
+.offer{
+  text-align: center;
+  padding: 180px 0 124px;
+  background-color: $block-color;
+  &__title{
+    margin-bottom: 137px;
+  }
+  &__slides-item{
+    display: flex;
+    justify-content: space-between;
+    width: 25%;
+    float: left;
+  }
+  &__elements-item{
+    position: relative;
+    padding: 10px 0px;
+  }
+  &__elements-description{
+    text-align: left;
+    position: absolute;
+    left:25px;
+    bottom: 10px;
+  }
+  &__elements-title{
+    @include font($title-font,$size:24px,$l-height:24px);
+    text-transform: lowercase;
+  }
+  &__elements-price{
+    @include font($weight:600,$size:36px,$l-height:54px);
+  }
+}
+
+.events{
+  text-align: center;
+  padding: 180px 0 124px;
+  @include font($size:18px,$l-height:27px);
+  &__title{
+    margin-bottom: 137px;
+  }
+  &__content{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &-main{
+      width: 85%;
+      display: flex;
+      justify-content: space-between;
+    }
+    &-inner{
+      text-align: left;
+      padding: 63px 0px 81px 30px;
+    }
+    &-title{
+      @include font($weight:500,$size:24px,$l-height:36px);
+      margin-bottom: 8px;
+    }
+    &-subtitle{
+      margin-bottom: 45px;
+    }
+    &-text{
+      margin-bottom: 45px;
+    }
+  }
+  &__button{
+    display: block;
+    height: 80px;
+    width: 80px;
+    border: 1px solid $yellow;
+    border-radius: 50%;
+    @include font($weight:100,$size:36px,$l-height:80px,$color:$yellow);
+    &-prev{
+      margin-right: 20px;
+    }
+    &-next{
+      margin-left: 20px;
+    }
+  }
+  &__buttons-hidden{
+    display: none;
+  }
+}
+
+.newsletter{
+  padding: 57px 0 63px;
+  text-align: center;
+  background-color:$block-color;
+  &__title{
+    margin-bottom: 25px;
+    @include font($title-font,$size:48px,$l-height:27px,$color:$yellow);
+  }
+  &__subscribe{
+    background-color: #000;
+    max-width: 570px;
+    margin: 70px auto 0px;
+    padding-left:35px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+  }
+  &__email{
+    width: 100%;
+    color: $white;
+  }
+  &__button{
+    color: $black;
+    background-color: $yellow;
+    height: 64px;
+    width: 130px;
+  }
+}
+
+@media screen and(max-width:1090px) {
+  .container{
+    padding: 0px 10px;
+  }
+  .events{
+    &__content-main{
+      flex-direction: column;
+    }
+  }
+  .products{
+    &__elements-title{
+      font-size: 1.9vw;
+    }
+    &__elements-price{
+      font-size: 1.8vw;
+      span{
+        font-size:1.5vw ;
+      }
+    }
+    &__elements-bottle{
+      transform: scale(0.9);
+    }
+  }
+
+}
+@media screen and(max-width:900px) {
+  .new{
+    &__inner{
+      flex-direction: column;
+    }
+    &__slider{
+    margin-top: 100px;
+    width: 90vw;
+    background-size: 85vw;
+    }
+  }
+}
+
+@media screen and(max-width:785px) {
+  .about{
+    &__content-inner-top{
+    font-size: 3.1vw;
+    }
+    &__content-inner-main{
+      font-size: 12.2vw;
+    }
+    &__content-inner-text{
+      font-size: 3vw;
+    }
+  }
+  .products{
+    &__elements{
+      grid-template-columns: repeat(3,1fr);
+    }
+    &__elements-title{
+      font-size: 3vw;
+    }
+    &__elements-price{
+      font-size: 2.5vw;
+      span{
+        font-size:2vw ;
+      }
+    }
+    &__elements-bottle{
+      transform: scale(0.8);
+    }
+   }
+ }
+
+ @media screen and(max-width:670px) {
+  .review{
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+  .offer{
+    &__slides-item{
+      flex-direction: column;
+    }
+  }
+  .events{
+    &__content{
+      flex-direction: column;
+      &-main{
+        width: 100%;
+      }
+      &-inner{
+        padding-left: 0px;
+      }
+    }
+    .visible-btn{
+      display:none
+    }
+    &__buttons-hidden{
+      display: flex;
+    }
+  }
+  .products{
+    &__elements{
+      grid-template-columns: repeat(2,1fr);
+    }
+    &__elements-title{
+    font-size: 4vw;
+    }
+    &__elements-price{
+      font-size: 3.5vw;
+      span{
+        font-size:3vw ;
+      }
+    }
+    &__elements-bottle{
+      transform: scale(0.8);
+    }
+  }
+}
+
+ 
+@media screen and(max-width:510px) {
+  .title{
+    font-size:8.4vw ;
+  }
+}
