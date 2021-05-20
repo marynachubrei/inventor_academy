@@ -1,0 +1,107 @@
+.header{
+  position: fixed;
+  top: 0px;
+  z-index: 10;
+  width:100% ;
+  background-color: black;
+  &__top{
+    text-align: center;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 13px 0;
+    min-height: 93px;
+    @include font($main-font,$size:12px,$l-height:18px)
+  }
+  &__menu{
+    padding: 22px 0;
+    border-top:1px solid $border-color;
+    border-bottom:1px solid $border-color;
+    @include font($title-font);
+  }
+}
+.logo{
+  position: absolute;
+ margin: 0 45%;
+}
+.menu{
+  &__burger{
+    display: none;
+    text-align: center;
+    line-height: 0;
+    img{
+      height: 30px;
+    }
+  }
+  &-buttons{
+    width: 35.5%;
+  }
+  &-buttons__list{
+    display: flex;
+    justify-content: space-between;
+  
+    width: 100%;
+  }
+  &__btn{
+    color: $white;
+    line-height: 25px;
+  }
+  &__list{
+    display: flex;
+    justify-content: space-between;
+    &-link{
+      border-bottom: 1px solid transparent;
+      &:hover{
+        border-bottom: 1px solid $yellow;
+        color: $yellow;
+      }
+    }
+  }
+}
+
+
+
+@media screen and(max-width:785px) {
+ .header{
+    &__top-ship{
+     display: none;
+    }
+  }
+  .logo{
+    margin: 0% 10% 0% 0%;
+    position: static;
+  }
+  .menu{
+    &-buttons{
+      width: 100%;
+    }
+  }
+}
+
+@media screen and(max-width:670px) {
+
+  .menu{
+    &-buttons{
+      width: 100;
+    }
+    &__burger{
+      display: block;
+    }
+    &__list{
+      display: none;
+    }
+  }
+  }
+  
+
+@media screen and(max-width:580px) {
+  .header{
+    &__top{
+      flex-direction: column;
+    }
+  }
+  .logo{
+    margin: 0%;
+  }
+}
