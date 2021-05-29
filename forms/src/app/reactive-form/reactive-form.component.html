@@ -65,14 +65,15 @@
           <button (click)="removeControl(i)">X</button>
         </div>
         </div>
+        <!-- error messages -->
         <span
           class="error-message"
           *ngIf="!form.controls['emails'].valid">
             Please enter a valid email!
-          </span>
+        </span>
       <button class="button" (click)="addControl()">Add email</button>
     </div>
-    <button class="button" type="submit">Submit</button>
+    <button class="button" type="submit" [disabled]=form.invalid>Submit</button>
   </form>
 </div>
 
