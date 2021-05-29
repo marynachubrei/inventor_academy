@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormArray, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -21,4 +21,22 @@ export class ReactiveFormComponent  {
       emails: new FormArray([])
     });
   }
+
+
+  // get method for receiving emails array
+  get emailsFormArray() {
+    return this.form.get('emails') as FormArray;
+  }
+
+  //method which add new emails to emails array
+  addControl() {
+    const control  = new FormControl(null, Validators.email)
+    this.emailsFormArray.push(control);
+  }
+
+  //method which remove emails from emails array
+  removeControl(index: number) {
+    this.emailsFormArray.removeAt(index);
+  }
+
 }

@@ -21,11 +21,14 @@
     </div>
     <!-- the ability to add / remove email -->
     <div class="form-block">
-      <div class="form-block_emails" >
-        <input class="form-input" type="email">
-        <button>X</button>
-      </div>
-      <button class="button">Add email</button>
+      <div formArrayName="emails">
+
+        <div class="form-block_emails"  *ngFor="let control of emailsFormArray.controls; let i = index">
+          <input class="form-input" type="email" [placeholder]="'example@gmail.com ' + (i + 1)" [formControlName]="i">
+          <button (click)="removeControl(i)">X</button>
+        </div>
+        </div>
+      <button class="button" (click)="addControl()">Add email</button>
     </div>
     <button class="button" type="submit">Submit</button>
   </form>
