@@ -1,13 +1,14 @@
 <div class="wrap">
   <div class="title">Reactive form</div>
-  <form class="form">
+  <form class="form" [formGroup]="form">
     <div class="form-block">
       <label for="name">Username</label>
       <input
         class="form-input"
         type="text"
         id="name"
-        placeholder="The username should be 6 to 15 characters long">
+        placeholder="The username should be 6 to 15 characters long"
+        formControlName="userName">
     </div>
     <div class="form-block">
       <label for="password">Password</label>
@@ -15,7 +16,8 @@
         class="form-input"
         type="password"
         id="password"
-        placeholder="The password should contain at least a number and a letter">
+        placeholder="The password should contain at least a number and a letter"
+        formControlName="password">
     </div>
     <!-- the ability to add / remove email -->
     <div class="form-block">
