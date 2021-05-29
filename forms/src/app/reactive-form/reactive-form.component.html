@@ -1,1 +1,31 @@
-<p>reactive-form works!</p>
+<div class="wrap">
+  <div class="title">Reactive form</div>
+  <form class="form">
+    <div class="form-block">
+      <label for="name">Username</label>
+      <input
+        class="form-input"
+        type="text"
+        id="name"
+        placeholder="The username should be 6 to 15 characters long">
+    </div>
+    <div class="form-block">
+      <label for="password">Password</label>
+      <input
+        class="form-input"
+        type="password"
+        id="password"
+        placeholder="The password should contain at least a number and a letter">
+    </div>
+    <!-- the ability to add / remove email -->
+    <div class="form-block">
+      <div class="form-block_emails" >
+        <input class="form-input" type="email">
+        <button>X</button>
+      </div>
+      <button class="button">Add email</button>
+    </div>
+    <button class="button" type="submit">Submit</button>
+  </form>
+</div>
+
