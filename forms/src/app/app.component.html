@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="wrap">
+    <div class="title">Template driven form</div>
+    <form class="form" #signupForm="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-block">
+        <label for="email">Email</label>
+        <input
+          class="form-input"
+          type="email"
+          id="email"
+          placeholder="example@gmail.com"
+          name="email"
+          required
+          email
+          ngModel
+          #email="ngModel">
+        <!-- error messages -->
+        <span
+          class="error-message"
+          *ngIf="email.value&&!email.valid &&(email.dirty || email.touched)">
+            Please enter a valid email!
+        </span>
+        <span
+          class="error-message"
+          *ngIf="(email.dirty||email.touched)&&email.hasError('required')">
+            Email is required!
+        </span>
+      </div>
+
+      <div class="form-block">
+        <label for="password">Password</label>
+        <input
+          class="form-input"
+          type="password"
+          id="password"
+          placeholder="The password should be 6 to 10 characters long"
+          name="password"
+          required
+          ngModel
+          #password="ngModel"
+          minlength="6"
+          maxlength="10">
+        <!-- error messages -->
+        <span
+          class="error-message"
+          *ngIf="password.value&&!password.valid &&(password.dirty|| password.touched)">
+            Please enter a valid password!
+        </span>
+        <span
+          class="error-message"
+          *ngIf="(password.dirty||password.touched)&&password.hasError('required')">
+            Password is required!
+        </span>
+      </div>
+      <button class="button" type="submit" [disabled]=signupForm.invalid>Submit</button>
+    </form>
+  </div>
+  <hr>
+  <hr>
+  <app-reactive-form></app-reactive-form>
+</div>
