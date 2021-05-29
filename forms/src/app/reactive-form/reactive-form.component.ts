@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators, FormArray} from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormArray, ValidatorFn, AbstractControl, ValidationErrors } from '@angular/forms';
 
 @Component({
   selector: 'app-reactive-form',
@@ -16,7 +16,8 @@ export class ReactiveFormComponent  {
         Validators.maxLength(15)
       ]),
       password: new FormControl(null, [
-        Validators.required
+        Validators.required,
+        this. createPasswordStrengthValidator()
       ]),
       emails: new FormArray([])
     });
@@ -26,6 +27,11 @@ export class ReactiveFormComponent  {
   // get method for receiving emails array
   get emailsFormArray() {
     return this.form.get('emails') as FormArray;
+  }
+
+  //method which show to us what we have to do with form after submit button was clicked
+  onSubmit() {
+    console.log(this.form);
   }
 
   //method which add new emails to emails array
@@ -39,4 +45,17 @@ export class ReactiveFormComponent  {
     this.emailsFormArray.removeAt(index);
   }
 
+  //custom validator that will check whether in value there are both numbers and letters
+  createPasswordStrengthValidator(): ValidatorFn {
+    return (control:AbstractControl) : ValidationErrors | null => {
+        const value = control.value;
+        if (!value) {
+            return null;
+        }
+        const hasLetter = /[a-zA-Z]+/.test(value);
+        const hasNumeric = /[0-9]+/.test(value);
+        const passwordValid = hasLetter && hasNumeric;
+        return !passwordValid ? {passwordStrength:true}: null;
+    }
+  }
 }
