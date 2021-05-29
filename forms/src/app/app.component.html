@@ -1,7 +1,7 @@
 <div class="container">
   <div class="wrap">
     <div class="title">Template driven form</div>
-    <form class="form" #signupForm="ngForm">
+    <form class="form" #signupForm="ngForm" (ngSubmit)="onSubmit()">
       <div class="form-block">
         <label for="email">Email</label>
         <input
