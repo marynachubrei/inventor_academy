@@ -1,7 +1,7 @@
 <div class="container">
   <div class="wrap">
     <div class="title">Template driven form</div>
-    <form class="form">
+    <form class="form" #signupForm="ngForm">
       <div class="form-block">
         <label for="email">Email</label>
         <input
@@ -11,7 +11,9 @@
           placeholder="example@gmail.com"
           name="email"
           required
-          email>
+          email
+          ngModel
+          #email="ngModel">
       </div>
 
       <div class="form-block">
@@ -23,6 +25,8 @@
           placeholder="The password should be 6 to 10 characters long"
           name="password"
           required
+          ngModel
+          #password="ngModel"
           minlength="6"
           maxlength="10">
       </div>
@@ -30,4 +34,3 @@
     </form>
   </div>
 </div>
-
